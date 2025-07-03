@@ -34,9 +34,9 @@ func main() {
 
 		se.Router.POST("/submit", FormHandlerLogin)
 
-		apiRoutes := se.Router.Group("/api")
-		apiRoutes.GET("/v1/health", ApiHandlerHealthCheck)
-		apiRoutes.POST("/v1/processLink", func(e *core.RequestEvent) error {
+		apiRoutes := se.Router.Group("/api/v1")
+		apiRoutes.GET("/health", ApiHandlerHealthCheck)
+		apiRoutes.POST("/processLink", func(e *core.RequestEvent) error {
 			return ApiHandlerProcessLink(app, e)
 		})
 
