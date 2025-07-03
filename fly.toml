@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for pocket-alternative on 2025-07-03T19:13:07-04:00
+# fly.toml app configuration file generated for pocket-alternative on 2025-07-03T19:35:56-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -7,11 +7,13 @@ app = 'pocket-alternative'
 primary_region = 'iad'
 
 [build]
-  [build.args]
-    GO_VERSION = '1.24.4'
 
 [env]
   PORT = '8080'
+
+[[mounts]]
+  source = 'pb_data'
+  destination = '/pb/pb_data'
 
 [http_service]
   internal_port = 8080
@@ -22,6 +24,6 @@ primary_region = 'iad'
   processes = ['app']
 
 [[vm]]
-  memory = '1gb'
+  memory = '256mb'
   cpu_kind = 'shared'
   cpus = 1
