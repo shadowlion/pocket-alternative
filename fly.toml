@@ -9,14 +9,14 @@ primary_region = 'iad'
 [build]
 
 [env]
-  PORT = '8080'
+  PORT = '8090'
 
 [[mounts]]
   source = 'pb_data'
   destination = '/pb/pb_data'
 
 [http_service]
-  internal_port = 8080
+  internal_port = 8090
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
