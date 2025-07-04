@@ -177,10 +177,6 @@ func NewArticle(url string) Article {
 	re := regexp.MustCompile(`\s+`)
 	cleanText := re.ReplaceAllString(rawContent, " ")
 	trimmedText := strings.TrimSpace(cleanText)
-	maxLen := 5000
-	if len(trimmedText) > maxLen {
-		trimmedText = trimmedText[:maxLen]
-	}
 
 	return Article{
 		title:   title,
